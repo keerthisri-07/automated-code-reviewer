@@ -3,7 +3,7 @@ import Dashboard from './components/Dashboard';
 import CodeReviewer from './components/CodeReviewer';
 import ReviewDetails from './components/ReviewDetails';
 
-const API_BASE = 'http://localhost:5050/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5050/api';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');

@@ -57,9 +57,13 @@ app.use((err, req, res, next) => {
 
 // Start Server
 // Start backend server
-app.listen(PORT, () => {
-  console.log(`====================================================`);
-  console.log(`Automated Code Reviewer Server is running on port ${PORT}`);
-  console.log(`Health check: http://localhost:${PORT}/health`);
-  console.log(`====================================================`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`====================================================`);
+    console.log(`Automated Code Reviewer Server is running on port ${PORT}`);
+    console.log(`Health check: http://localhost:${PORT}/health`);
+    console.log(`====================================================`);
+  });
+}
+
+module.exports = app;
